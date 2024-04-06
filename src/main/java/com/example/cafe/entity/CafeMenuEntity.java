@@ -26,6 +26,7 @@ public class CafeMenuEntity {
     @Column(length = 20, nullable = false)
     private String cafe_menu_tag;
 
+    //cafe_menu > cafe_info
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "cafe_id")
     private CafeEntity cafeEntity;

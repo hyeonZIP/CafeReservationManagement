@@ -26,8 +26,9 @@ public class CafeAdminEntity {
     @Column(length = 50, nullable = false, unique = true)
     private String cafe_admin_email;
 
-    @OneToMany(mappedBy = "cafeEntity", cascade = CascadeType.PERSIST)
+    //cafe_admin > cafe_info
+    @OneToMany(mappedBy = "cafeAdminEntity", cascade = CascadeType.PERSIST)
     @ToString.Exclude
     @Builder.Default
-    private List<CafeEntity> cafeEntities = new ArrayList<>();
+    private List<CafeEntity> cafeEntity = new ArrayList<>();
 }
