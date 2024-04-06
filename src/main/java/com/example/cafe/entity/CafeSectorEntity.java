@@ -32,7 +32,7 @@ public class CafeSectorEntity {
     @JoinColumn(name = "cafe_id")
     private CafeEntity cafeEntity;
 
-    @OneToMany(mappedBy = "cafeSectorEntity")
+    @OneToMany(mappedBy = "cafeSectorEntity", cascade = CascadeType.PERSIST)
     @ToString.Exclude
     @Builder.Default
     private List<TableTemplateEntity> tableTemplateEntity = new ArrayList<>();

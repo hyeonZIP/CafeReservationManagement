@@ -19,10 +19,10 @@ public class UserReservationEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long user_reservation_id;
 
-    @Column(length = 20, nullable = false)
+    @Column(nullable = false)
     private LocalDateTime user_reservation_req;
 
-    @Column(length = 20, nullable = false)
+    @Column(nullable = false)
     private LocalDateTime user_reservation_res;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
