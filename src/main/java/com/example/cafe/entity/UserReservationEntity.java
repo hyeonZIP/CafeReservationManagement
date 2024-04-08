@@ -17,13 +17,13 @@ import java.time.LocalDateTime;
 public class UserReservationEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long user_reservation_id;
+    private Long idx;
 
     @Column(nullable = false)
-    private LocalDateTime user_reservation_req;
+    private LocalDateTime req;
 
     @Column(nullable = false)
-    private LocalDateTime user_reservation_res;
+    private LocalDateTime res;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id")

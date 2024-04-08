@@ -15,10 +15,10 @@ import java.util.List;
 public class TableComponentEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int table_component_id;
+    private int idx;
 
     @Column(length = 20, nullable = false)
-    private String table_component_name;
+    private String name;
 
     @OneToMany(mappedBy = "tableComponentEntity", cascade = CascadeType.PERSIST)
     @ToString.Exclude

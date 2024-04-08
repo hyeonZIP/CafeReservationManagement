@@ -15,10 +15,10 @@ import java.util.List;
 public class CafeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long cafe_id;
+    private Long idx;
 
     @Column(length = 50, nullable = false)
-    private String cafe_name;
+    private String name;
 
     //cafe_info > cafe_admin
     @ManyToOne(fetch = FetchType.LAZY, optional = false)

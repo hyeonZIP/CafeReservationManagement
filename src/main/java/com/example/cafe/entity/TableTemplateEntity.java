@@ -15,26 +15,26 @@ import lombok.NoArgsConstructor;
 public class TableTemplateEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long table_template_id;
+    private Long idx;
 
     @Column(nullable = false)
-    private int table_template_seat_count;
+    private int seatCount;
 
     @Column(nullable = false)
-    private int table_template_seat_no;
+    private int seatNo;
 
     @Column(nullable = false)
-    private int table_template_seat_x;
+    private int seatX;
 
     @Column(nullable = false)
-    private int table_template_seat_y;
+    private int seatY;
 
     @Column(length = 255, nullable = false)
-    private String table_template_description;
+    private String description;
 
     @Builder.Default
     @Column(nullable = false)
-    private boolean table_template_is_using = false;
+    private boolean isUsing = false;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "table_component_id")

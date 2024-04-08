@@ -15,19 +15,22 @@ import java.util.List;
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long user_id;
+    private Long idx;
 
     @Column(length = 20, nullable = false)
-    private String user_name;
+    private String name;
 
     @Column(length = 50 , nullable = false)
-    private String user_pw;
+    private String password;
 
     @Column(length = 50, nullable = false, unique = true)
-    private String user_email;
+    private String email;
 
     @ToString.Exclude
     @Builder.Default//값이 들어왔을 때 기본으로 참조
     @OneToMany(mappedBy = "userEntity", cascade = CascadeType.PERSIST)
     private List<UserReservationEntity> userReservationEntities = new ArrayList<>();
+    public void addReservation(UserReservationEntity entity) {
+        userReservationEntities.add(entity);
+    }
 }

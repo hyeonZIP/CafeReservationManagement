@@ -15,16 +15,16 @@ import java.util.List;
 public class CafeAdminEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long cafe_admin_id;
+    private Long idx;
 
     @Column(length = 20, nullable = false)
-    private String cafe_admin_name;
+    private String name;
 
     @Column(length = 50, nullable = false)
-    private String cafe_admin_pw;
+    private String password;
 
     @Column(length = 50, nullable = false, unique = true)
-    private String cafe_admin_email;
+    private String email;
 
     //cafe_admin > cafe_info
     @OneToMany(mappedBy = "cafeAdminEntity", cascade = CascadeType.PERSIST)

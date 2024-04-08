@@ -15,16 +15,16 @@ import lombok.NoArgsConstructor;
 public class CafeMenuEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long cafe_menu_id;
+    private Long idx;
 
     @Column(length = 20, nullable = false)
-    private String cafe_menu_name;
+    private String name;
 
     @Column(nullable = false)
-    private int cafe_menu_price;
+    private int price;
 
     @Column(length = 20, nullable = false)
-    private String cafe_menu_tag;
+    private String tag;
 
     //cafe_menu > cafe_info
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
