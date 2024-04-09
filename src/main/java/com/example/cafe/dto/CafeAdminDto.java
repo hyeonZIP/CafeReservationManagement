@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class CafeAdminDto {
 
-    private Long idx;
-
-
+    private String name;
+    private String password;
+    private String email;
 }

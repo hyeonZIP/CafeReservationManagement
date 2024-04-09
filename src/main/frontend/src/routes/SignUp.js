@@ -55,6 +55,7 @@ const SignUp = () => {
         }
         try
         {
+
             const response = await axios.post("http://localhost:8080/user/signup", formData);
             console.log(response.data);
             alert("회원가입에 성공했습니다!");

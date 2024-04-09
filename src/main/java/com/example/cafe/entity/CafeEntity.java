@@ -6,7 +6,7 @@ import lombok.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Data
+@Getter
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,6 +19,9 @@ public class CafeEntity {
 
     @Column(length = 50, nullable = false)
     private String name;
+
+    @Column(length = 100)
+    private String address;
 
     //cafe_info > cafe_admin
     @ManyToOne(fetch = FetchType.LAZY, optional = false)

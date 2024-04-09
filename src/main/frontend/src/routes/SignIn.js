@@ -7,7 +7,8 @@ const SignIn = () => {
     const [formData, setFormData] = useState({
         email:'',
         password:'',
-        whoAreYou: '',
+        customer: '',
+        essential: '',
     })
 
     const navigate = useNavigate();
@@ -19,6 +20,11 @@ const SignIn = () => {
 
     const submit = async (e) =>{
         e.preventDefault();
+        if (formData.customer === '')
+        {
+            alert("사용자 구분을 선택해주세요");
+            return;
+        }
         try
         {
             const response = await axios.post("http://localhost:8080/user/signin", formData);
@@ -48,10 +54,8 @@ const SignIn = () => {
                 <input type={"password"} name={"password"} placeholder={"PASSWORD"} value={formData.password}
                        onChange={changed}/>
                 <br/>
-                <input type={"radio"} value={"user"} name={"whoAreYou"} checked={formData.whoAreYou = 'user'}
-                       onChange={changed}/> User
-                <input type={"radio"} value={"admin"} name={"whoAreYou"} checked={formData.whoAreYou = 'admin'}
-                       onChange={changed}/> Admin
+                <input type={"radio"} value={"user"} name={"customer"} onChange={changed}/> User
+                <input type={"radio"} value={"admin"} name={"customer"} onChange={changed}/> Admin
                 <br/>
             </label>
             <button type={"submit"}>Sign In</button>

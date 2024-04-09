@@ -13,6 +13,5 @@ public class CafeDto {
 
     private Long idx;
     private String name;
-
     private CafeAdminDto cafeAdminDto;
 }
