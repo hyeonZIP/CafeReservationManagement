@@ -2,24 +2,26 @@ package com.example.cafe.controller;
 
 import com.example.cafe.service.HomeService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
+@Slf4j
 @RequiredArgsConstructor
-@RequestMapping("/")
-@CrossOrigin(origins = "http://localhost:3000")
+@RequestMapping("/test")
 public class HomeController {
 
     private final HomeService homeService;
 
-    @PostMapping("/")
-    public List<String> findFirst3Names()
+    @GetMapping("/cafe")
+    public List<?> findByCafeIdx(@RequestParam(name = "idx") Long idx)
     {
-        return homeService.findTop3By();
+        log.info("idx={}", idx);
+        return homeService.findByCafeIdx(idx);
     }
 }

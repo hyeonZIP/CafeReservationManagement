@@ -23,12 +23,6 @@ public class CafeEntity {
     @Column(length = 100)
     private String address;
 
-    //cafe_info < user_reservation
-    @OneToMany(mappedBy = "cafeEntity", cascade = CascadeType.PERSIST)
-    @ToString.Exclude
-    @Builder.Default
-    private List<UserReservationEntity> userReservationEntity = new ArrayList<>();
-
     //cafe_info < cafe_menu
     @OneToMany(mappedBy = "cafeEntity", cascade = CascadeType.PERSIST)
     @ToString.Exclude

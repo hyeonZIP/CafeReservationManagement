@@ -1,10 +1,10 @@
 package com.example.cafe.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Table(name = "table_template")
 @Entity
@@ -43,6 +43,10 @@ public class TableTemplateEntity {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "cafe_sector_id")
-
     private CafeSectorEntity cafeSectorEntity;
+
+    @ToString.Exclude
+    @Builder.Default//값이 들어왔을 때 기본으로 참조
+    @OneToMany(mappedBy = "tableTemplateEntity", cascade = CascadeType.PERSIST)
+    private List<UserReservationEntity> userReservationEntity = new ArrayList<>();
 }

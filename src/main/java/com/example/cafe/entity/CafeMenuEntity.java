@@ -1,10 +1,10 @@
 package com.example.cafe.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity
@@ -30,4 +30,9 @@ public class CafeMenuEntity {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "cafe_id")
     private CafeEntity cafeEntity;
+
+    @ToString.Exclude
+    @Builder.Default//값이 들어왔을 때 기본으로 참조
+    @OneToMany(mappedBy = "cafeMenuEntity", cascade = CascadeType.PERSIST)
+    private List<UserReservationEntity> userReservationEntity = new ArrayList<>();
 }

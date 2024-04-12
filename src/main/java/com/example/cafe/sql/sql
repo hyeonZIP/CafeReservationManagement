@@ -1,4 +1,3 @@
----cafe_info
 INSERT INTO cafe_info (name, address) VALUES
 ('Sunny Cafe', '123 Sunshine Street, Sunnyvale, CA'),
 ('Coffee Corner', '456 Java Avenue, Seattle, WA'),
@@ -23,6 +22,7 @@ INSERT INTO cafe_sector (name, cafe_id, sizex, sizey) VALUES
 ('5th Floor A', 1, 13, 19),
 ('5th Floor B', 1, 11, 17);
 
+INSERT INTO table_component (name) VALUES ("table"),("desk"),("toilet"),("bin"),("window"),("wall"),("stair"),("return");
 
 INSERT INTO table_template (seat_count, seat_no, seatx, seaty, description, table_component_id, is_using, cafe_sector_id) VALUES
 (4, 1, 5, 5, 'Standard table', 1, false, 1),
@@ -36,4 +36,3 @@ INSERT INTO table_template (seat_count, seat_no, seatx, seaty, description, tabl
 (8, 9, 10, 8, 'Long table for groups', 1, false, 2),
 (0, 10, 4, 7, 'stairs', 7, false, 2);
 
-INSERT INTO table_component (name) VALUES ("table"),("desk"),("toilet"),("bin"),("window"),("wall"),("stair"),("return")

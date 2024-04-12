@@ -30,6 +30,10 @@ public class UserReservationEntity {
     private UserEntity userEntity;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "cafe_id")
-    private CafeEntity cafeEntity;
+    @JoinColumn(name = "cafe_menu_id")
+    private CafeMenuEntity cafeMenuEntity;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "table_template_id")
+    private TableTemplateEntity tableTemplateEntity;
 }
