@@ -10,30 +10,36 @@ import java.util.List;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@Builder(toBuilder = true)
 @Table(name = "user_info")
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idx;
 
-    @Column(length = 20, nullable = false)
-    private String name;
+    //스프링 시큐리티에서 관리할 이름과 동일하게 지어줌 실제로는 email 이 들어감
+    @Column(nullable = false, unique = true)
+    private String username;
 
-    @Column(length = 50 , nullable = false)
+    @Column(nullable = false)
     private String password;
 
-    @Column(length = 50, nullable = false, unique = true)
-    private String email;
+    @Column(nullable = false)
+    private String realname;
 
-    @Enumerated(EnumType.STRING)
-    private Authority authority;
+    @Column(nullable = false)
+    private String role;
 
     @ToString.Exclude
     @Builder.Default//값이 들어왔을 때 기본으로 참조
     @OneToMany(mappedBy = "userEntity", cascade = CascadeType.PERSIST)
-    private List<UserReservationEntity> userReservationEntities = new ArrayList<>();
+    private List<AuthEntity> authEntity = new ArrayList<>();
+
+    @ToString.Exclude
+    @Builder.Default//값이 들어왔을 때 기본으로 참조
+    @OneToMany(mappedBy = "userEntity", cascade = CascadeType.PERSIST)
+    private List<UserReservationEntity> userReservationEntity = new ArrayList<>();
     public void addReservation(UserReservationEntity entity) {
-        userReservationEntities.add(entity);
+        userReservationEntity.add(entity);
     }
 }

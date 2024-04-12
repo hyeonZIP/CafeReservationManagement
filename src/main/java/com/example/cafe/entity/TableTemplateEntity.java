@@ -17,8 +17,9 @@ public class TableTemplateEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idx;
 
-    @Column(nullable = false)
-    private int seatCount;
+    @Builder.Default
+    @Column(nullable = true)
+    private int seatCount = 0;
 
     @Column(nullable = false)
     private int seatNo;
@@ -29,7 +30,7 @@ public class TableTemplateEntity {
     @Column(nullable = false)
     private int seatY;
 
-    @Column(length = 255, nullable = false)
+    @Column(nullable = false)
     private String description;
 
     @Builder.Default

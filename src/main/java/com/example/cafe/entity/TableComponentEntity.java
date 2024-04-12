@@ -17,7 +17,7 @@ public class TableComponentEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idx;
 
-    @Column(length = 20, nullable = false)
+    @Column(length = 20, nullable = false, unique = true)
     private String name;
 
     @OneToMany(mappedBy = "tableComponentEntity", cascade = CascadeType.PERSIST)

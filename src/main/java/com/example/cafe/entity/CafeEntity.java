@@ -6,7 +6,7 @@ import lombok.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter
+@Data
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -22,11 +22,6 @@ public class CafeEntity {
 
     @Column(length = 100)
     private String address;
-
-    //cafe_info > cafe_admin
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "cafe_admin_id")
-    private CafeAdminEntity cafeAdminEntity;
 
     //cafe_info < user_reservation
     @OneToMany(mappedBy = "cafeEntity", cascade = CascadeType.PERSIST)
@@ -45,4 +40,10 @@ public class CafeEntity {
     @ToString.Exclude
     @Builder.Default
     private List<CafeSectorEntity> cafeSectorEntity = new ArrayList<>();
+
+    @ToString.Exclude
+    @Builder.Default//값이 들어왔을 때 기본으로 참조
+    @OneToMany(mappedBy = "cafeEntity", cascade = CascadeType.PERSIST)
+    private List<AuthEntity> authEntity = new ArrayList<>();
 }
+

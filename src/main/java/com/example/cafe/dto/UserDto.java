@@ -10,7 +10,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class UserDto {
-    private String name;
+    private String username;
     private String password;
-    private String email;
+    private String realname;
+    private String role;
+
+    //유저 회원가입에 사용됨
 }

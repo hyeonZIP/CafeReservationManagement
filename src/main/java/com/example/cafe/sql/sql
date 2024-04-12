@@ -1,0 +1,39 @@
+---cafe_info
+INSERT INTO cafe_info (name, address) VALUES
+('Sunny Cafe', '123 Sunshine Street, Sunnyvale, CA'),
+('Coffee Corner', '456 Java Avenue, Seattle, WA'),
+('Mocha House', '789 Mocha Lane, New York, NY'),
+('Green Bean Cafe', '1010 Greenfield Road, Portland, OR'),
+('Perk Up Cafe', '222 Espresso Boulevard, San Francisco, CA'),
+('Morning Brew', '333 Latte Street, Chicago, IL'),
+('Cozy Cup', '444 Cappuccino Drive, Boston, MA'),
+('The Frothy Mug', '555 Macchiato Place, Los Angeles, CA'),
+('Caffeine Fix', '666 Arabica Road, Denver, CO'),
+('Bean Town Cafe', '777 Coffee Lane, Austin, TX');
+
+INSERT INTO cafe_sector (name, cafe_id, sizex, sizey) VALUES
+('1st Floor A', 1, 10, 15),
+('1st Floor B', 1, 8, 12),
+('2nd Floor A', 1, 12, 20),
+('2nd Floor B', 1, 10, 18),
+('3rd Floor A', 1, 11, 17),
+('3rd Floor B', 1, 9, 15),
+('4th Floor A', 1, 14, 22),
+('4th Floor B', 1, 12, 20),
+('5th Floor A', 1, 13, 19),
+('5th Floor B', 1, 11, 17);
+
+
+INSERT INTO table_template (seat_count, seat_no, seatx, seaty, description, table_component_id, is_using, cafe_sector_id) VALUES
+(4, 1, 5, 5, 'Standard table', 1, false, 1),
+(6, 2, 7, 3, 'Large table', 1, false, 1),
+(2, 3, 3, 2, 'Small table near the window', 1, false, 1),
+(0, 4, 10, 8, 'desk', 2, false, 1),
+(0, 5, 4, 7, 'stairs', 7, false, 1),
+(4, 6, 5, 5, 'Standard table', 1, false, 2),
+(6, 7, 7, 3, 'Large table', 1, false, 2),
+(2, 8, 3, 2, 'Small table near the window', 1, false, 2),
+(8, 9, 10, 8, 'Long table for groups', 1, false, 2),
+(0, 10, 4, 7, 'stairs', 7, false, 2);
+
+INSERT INTO table_component (name) VALUES ("table"),("desk"),("toilet"),("bin"),("window"),("wall"),("stair"),("return")
