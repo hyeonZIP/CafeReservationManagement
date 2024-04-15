@@ -36,4 +36,9 @@ public class UserReservationEntity {
     @ToString.Exclude
     @Builder.Default
     private List<MenuOrderEntity> menuOrderEntity = new ArrayList<>();
+
+    public void addOrderMenu(MenuOrderEntity entity)
+    {
+        menuOrderEntity.add(entity);
+    }
 }

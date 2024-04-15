@@ -1,7 +1,9 @@
-package com.example.cafe.home;
+package com.example.cafe.service;
 
 import com.example.cafe.dto.CafeSeatDto;
 import com.example.cafe.dto.UserReservationDto;
+import com.example.cafe.repository.CafeRepository;
+import com.example.cafe.repository.UserReservationRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

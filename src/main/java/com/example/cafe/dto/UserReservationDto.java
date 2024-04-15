@@ -20,5 +20,6 @@ public class UserReservationDto {
     private LocalDateTime req; //예약 요청 시간
     private LocalDateTime res; //예약 응답 시간
 
+    //Home 화면에 띄우기 위한 DTO
     //ur.idx, u.realname, c.name, tt.seatNo, cs.name, cm.name, mo.count, ur.req, ur.res
 }

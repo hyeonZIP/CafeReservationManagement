@@ -1,4 +1,4 @@
-package com.example.cafe.home;
+package com.example.cafe.repository;
 
 import com.example.cafe.dto.CafeSeatDto;
 import com.example.cafe.entity.CafeEntity;

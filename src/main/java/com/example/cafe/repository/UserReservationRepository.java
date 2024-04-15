@@ -1,4 +1,4 @@
-package com.example.cafe.home;
+package com.example.cafe.repository;
 
 import com.example.cafe.dto.UserReservationDto;
 import com.example.cafe.entity.UserReservationEntity;
@@ -12,7 +12,7 @@ import java.util.Optional;
 @Repository
 public interface UserReservationRepository extends JpaRepository<UserReservationEntity, Long> {
 
-    @Query("SELECT distinct new com.example.cafe.dto.UserReservationDto(ur.idx, u.realname, c.name, tt.seatNo, cs.name,ur.req, ur.res) " +
+    @Query("SELECT new com.example.cafe.dto.UserReservationDto(ur.idx, u.realname, c.name, tt.seatNo, cs.name,ur.req, ur.res) " +
             "FROM UserEntity u " +
             "JOIN u.userReservationEntity ur " +
             "JOIN ur.tableTemplateEntity tt " +
