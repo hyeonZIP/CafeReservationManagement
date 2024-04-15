@@ -36,6 +36,10 @@ const LoginContextProvider = ({children}) => {
     //아이디 저장
     const [rememberUserId, setRememeberUserId] = useState()
 
+    const [cafeListInfo, setCafeListInfo] = useState({})
+
+    const [reservationInfo, setReserveInfo] = useState({})
+
     /* ---------------------------------------------------------------------------------------------------------------*/
 
     //페이지 이동
@@ -62,7 +66,7 @@ const LoginContextProvider = ({children}) => {
 
         //accessToken이 있는 경우
         //header에 jwt 담기
-        api.defaults.headers.common.Access = `Bearer ${accessToken}`
+        api.defaults.headers.common.access = `Bearer ${accessToken}`
         //사용자 정보 요청
 
         let response
@@ -90,7 +94,12 @@ const LoginContextProvider = ({children}) => {
         loginSetting(data, accessToken);
     }
 
-    //로그인
+    /**
+     * 로그인
+     * -username과 password를 받고 post요청
+     * -post 요청 후 response에 담긴 정보 받기
+     * -백엔드에서 access토큰은 헤더로 refresh토큰은 쿠키로 보냄
+     */
     const login = async (username, password) =>{
         console.log(`username : ${username}`);
         console.log(`password : ${password}`);
@@ -151,7 +160,7 @@ const LoginContextProvider = ({children}) => {
         console.log(`realname : ${realname}`);
 
         //axios 객체의 header(Authorization : 'Bearer ${accessToken}')
-        api.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
+        api.defaults.headers.common.access = `Bearer ${accessToken}`;
 
         //로그인 여부 : true
         setLogin(true)
@@ -166,12 +175,14 @@ const LoginContextProvider = ({children}) => {
         if(role === 'ROLE_USER') updatedRoles.isUser = true
         if(role === 'ROLE_ADMIN') updatedRoles.isAdmin = true
         setRoles(updatedRoles)
+
+        getReservationInfo(idx)
     }
 
     //로그아웃 세팅
     const logoutSetting = () =>{
         //axios 헤더 초기화
-        api.defaults.headers.common.Authorization = undefined;
+        api.defaults.headers.common.access = undefined;
 
         //쿠키 초기화
         Cookies.remove("accessToken")
@@ -182,18 +193,43 @@ const LoginContextProvider = ({children}) => {
         //유저 정보 초기화
         setUserInfo(null)
 
+        // setReserveInfo(null)
+
         //권한 정보 초기화
         setRoles(null)
     }
 
+    const getCafeInfo = async ()=>{
+        try{
+            const response = await auth.cafeInfo(1)
+            const data =response.data
+            console.log("카페 정보 불러오기 : ", data);
+            setCafeListInfo(data);
+        }catch (error) {
+            console.error("카페 정보 불러오기 에러 : ", error);
+        }
+    };
+
+    const getReservationInfo = async (idx)=>{
+        try{
+            const response = await auth.reserveInfo(idx)
+            const data =response.data
+            console.log("예약 정보 불러오기 : ", data);
+            setReserveInfo(data);
+        }catch (error) {
+            console.error("예약 정보 불러오기 오류 : ", error);
+        }
+    }
+
     useEffect(() => {
         //로그인 체크
+        console.log("콘텍스트 프로바이더 마운트 - LoginCheck")
         loginCheck()
     }, []);
 
 
     return(
-        <LoginContext.Provider value={{isLogin,userInfo, roles, login, logout, loginCheck}}>
+        <LoginContext.Provider value={{isLogin,userInfo, roles, reservationInfo, cafeListInfo, login, logout, loginCheck, getCafeInfo}}>
             {children}
         </LoginContext.Provider>
     )

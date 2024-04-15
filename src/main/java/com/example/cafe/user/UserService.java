@@ -1,8 +1,7 @@
-package com.example.cafe.service;
+package com.example.cafe.user;
 
 import com.example.cafe.dto.UserDto;
 import com.example.cafe.entity.UserEntity;
-import com.example.cafe.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

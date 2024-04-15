@@ -2,7 +2,7 @@ package com.example.cafe.service;
 
 import com.example.cafe.dto.CustomUserDetails;
 import com.example.cafe.entity.UserEntity;
-import com.example.cafe.repository.UserRepository;
+import com.example.cafe.user.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

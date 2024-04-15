@@ -1,4 +1,4 @@
-package com.example.cafe.repository;
+package com.example.cafe.user;
 
 import com.example.cafe.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;

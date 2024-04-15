@@ -36,3 +36,14 @@ INSERT INTO table_template (seat_count, seat_no, seatx, seaty, description, tabl
 (8, 9, 10, 8, 'Long table for groups', 1, false, 2),
 (0, 10, 4, 7, 'stairs', 7, false, 2);
 
+INSERT INTO cafe_menu (name, price, tag, cafe_id) VALUES
+('아메리카노 아이스', 2300, 'COFFEE', 1),
+('아메리카노 핫', 2300, 'COFFEE', 1),
+('바닐라라떼 아이스', 3200, 'COFFEE', 1),
+('바닐라라떼 핫', 3200, 'COFFEE', 1);
+
+INSERT INTO menu_order (cafe_menu_id, user_reservation_id, count) VALUES
+(2, 1, 5),
+(3, 1, 6),
+(4, 1, 2),
+(1, 1, 1);

@@ -5,7 +5,7 @@ import {LoginContext} from "../contexts/LoginContextProvider";
 import * as auth from '../apis/auth';
 const User = () => {
 
-    const [userInfo, setUserInfo] = useState()
+    const [userInfos, setUserInfos] = useState()
     const {logout, loginCheck} = useContext(LoginContext)
     //회원 정보 조회 - /user/info
     const getUserInfo = async ()=>{
@@ -13,7 +13,7 @@ const User = () => {
         const data =response.data
         console.log(`getUserInfo`);
         console.log(data);
-        setUserInfo(data)
+        setUserInfos(data)
     }
 
     //회원 정보 수정
@@ -78,6 +78,7 @@ const User = () => {
     }
 
     useEffect(() => {
+        console.log("User.jsx - LoginCheck")
         loginCheck()
         getUserInfo()
 
@@ -87,7 +88,7 @@ const User = () => {
             <Header/>
             <div className={"container"}>
                 <h1>User</h1>
-                <UserForm userInfo={userInfo} updateUser={updateUser} deleteUser={deleteUser}/>
+                <UserForm userInfo={userInfos} updateUser={updateUser} deleteUser={deleteUser}/>
             </div>
         </>
 

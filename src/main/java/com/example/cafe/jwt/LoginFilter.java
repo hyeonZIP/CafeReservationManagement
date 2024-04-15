@@ -60,7 +60,7 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
 
         //jwtUtil에 값을 직접
         //토큰 생성
-        String access = jwtUtil.createJwt("access", username, role, realname, idx, 600000L);
+        String access = jwtUtil.createJwt("access", username, role, realname, idx, 6000000000L);
         String refresh = jwtUtil.createJwt("refresh", username, role, realname, idx,86400000L);
 
 

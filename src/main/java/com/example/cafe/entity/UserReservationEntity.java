@@ -1,12 +1,11 @@
 package com.example.cafe.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity
@@ -30,10 +29,11 @@ public class UserReservationEntity {
     private UserEntity userEntity;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "cafe_menu_id")
-    private CafeMenuEntity cafeMenuEntity;
-
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "table_template_id")
     private TableTemplateEntity tableTemplateEntity;
+
+    @OneToMany(mappedBy = "userReservationEntity", cascade = CascadeType.PERSIST)
+    @ToString.Exclude
+    @Builder.Default
+    private List<MenuOrderEntity> menuOrderEntity = new ArrayList<>();
 }

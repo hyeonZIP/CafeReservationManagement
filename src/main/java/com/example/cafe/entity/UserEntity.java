@@ -39,7 +39,7 @@ public class UserEntity {
     @Builder.Default//값이 들어왔을 때 기본으로 참조
     @OneToMany(mappedBy = "userEntity", cascade = CascadeType.PERSIST)
     private List<UserReservationEntity> userReservationEntity = new ArrayList<>();
-    public void addReservation(UserReservationEntity entity) {
-        userReservationEntity.add(entity);
-    }
+//    public void addReservation(UserReservationEntity entity) {
+//        userReservationEntity.add(entity);
+//    }
 }

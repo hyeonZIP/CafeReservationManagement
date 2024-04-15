@@ -34,5 +34,5 @@ public class CafeMenuEntity {
     @ToString.Exclude
     @Builder.Default//값이 들어왔을 때 기본으로 참조
     @OneToMany(mappedBy = "cafeMenuEntity", cascade = CascadeType.PERSIST)
-    private List<UserReservationEntity> userReservationEntity = new ArrayList<>();
+    private List<MenuOrderEntity> menuOrderEntity = new ArrayList<>();
 }

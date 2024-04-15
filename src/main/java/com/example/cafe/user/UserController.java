@@ -1,9 +1,8 @@
-package com.example.cafe.controller;
+package com.example.cafe.user;
 
 import com.example.cafe.dto.CustomUserDetails;
 import com.example.cafe.dto.UserDto;
 import com.example.cafe.entity.UserEntity;
-import com.example.cafe.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
