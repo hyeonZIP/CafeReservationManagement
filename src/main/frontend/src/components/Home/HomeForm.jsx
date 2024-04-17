@@ -2,7 +2,7 @@ import React, {useContext} from 'react'
 import './HomeForm.css'
 import {LoginContext} from "../../contexts/LoginContextProvider";
 import {Link} from "react-router-dom";
-const HomeForm = () => {
+const HomeForm = ({cancelReservation}) => {
 
     const {isLogin, cafeListInfo,reservationInfo} = useContext(LoginContext)
     if(!cafeListInfo)
@@ -43,7 +43,7 @@ const HomeForm = () => {
                                 <div>Request : {reservationInfo.req}</div>
                                 <div>Response : {reservationInfo.res}</div>
                                 <div>Client : {reservationInfo.userRealName}</div>
-                                <button>취소하기</button>
+                                <button onClick={()=>cancelReservation(reservationInfo.reservationIdx)}>취소하기</button>
                             </div>
                         )
                 }

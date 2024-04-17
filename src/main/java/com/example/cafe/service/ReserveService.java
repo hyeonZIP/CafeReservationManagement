@@ -6,6 +6,7 @@ import com.example.cafe.dto.ReserveDto;
 import com.example.cafe.dto.TableTemplateDto;
 import com.example.cafe.entity.*;
 import com.example.cafe.repository.*;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +20,6 @@ public class ReserveService {
 
     private final CafeSectorRepository cafeSectorRepository;
     private final CafeMenuRepository cafeMenuRepository;
-    private final MenuOrderRepository menuOrderRepository;
     private final UserReservationRepository userReservationRepository;
     private final UserRepository userRepository;
     private final TableTemplateRepository tableTemplateRepository;
@@ -88,5 +88,20 @@ public class ReserveService {
             System.out.println("에러 : " + e);
             return 0;
         }
+    }
+
+    @Transactional
+    public boolean cancel(long idx)
+    {
+        Optional<UserReservationEntity> userReservationEntity = userReservationRepository.findById(idx);
+
+        if(userReservationEntity.isPresent())
+        {
+            userReservationEntity.get().getTableTemplateEntity().setUsing(false);
+
+            userReservationRepository.delete(userReservationEntity.get());
+            return true;
+        }
+        return false;
     }
 }

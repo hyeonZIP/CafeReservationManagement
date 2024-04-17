@@ -31,3 +31,5 @@ export const tableInfo = (idx) => api.get(`/reserve/table?idx=${idx}`);
 export const menuInfo = (idx) => api.get(`/reserve/cafe-menu?idx=${idx}`);
 //예약 정보 쏴라ㅏㅏㅏㅏㅏㅏ
 export const reserve = (data) => api.post(`/reserve/insert-reservation`, data);
+
+export const cancel = (idx) => api.delete(`/reserve/cancel/${idx}`);

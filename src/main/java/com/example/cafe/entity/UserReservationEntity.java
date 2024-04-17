@@ -32,7 +32,7 @@ public class UserReservationEntity {
     @JoinColumn(name = "table_template_id")
     private TableTemplateEntity tableTemplateEntity;
 
-    @OneToMany(mappedBy = "userReservationEntity", cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "userReservationEntity", cascade = CascadeType.PERSIST, orphanRemoval = true)
     @ToString.Exclude
     @Builder.Default
     private List<MenuOrderEntity> menuOrderEntity = new ArrayList<>();

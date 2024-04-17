@@ -40,10 +40,26 @@ public class ReserveController {
         return reserveService.selectCafeMenu(idx);
     }
 
-    @PostMapping("insert-reservation")
+    //insert-reservation이 갑자기 안되면 여기서 / 지우기
+    @PostMapping("/insert-reservation")
     public int insertUserReservation(@RequestBody ReserveDto reserveDto)
     {
         System.out.println("컨트롤러 동작");
         return reserveService.insertUserReservation(reserveDto);
+    }
+
+    @DeleteMapping("/cancel/{reservationIdx}")
+    public int cancel(@PathVariable("reservationIdx") long idx)
+    {
+        boolean result = reserveService.cancel(idx);
+
+        if(result)
+        {
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }
     }
 }

@@ -10,6 +10,33 @@ const Home = () => {
     const {getCafeInfo} = useContext(LoginContext)
     //회원 정보 조회 - /user/info
 
+    const cancelReservation = async (reserveIdx) =>{
+        console.log(reserveIdx);
+
+        let response
+        let data
+        try{
+            response = await auth.cancel(reserveIdx)
+        }catch (error){
+            console.error(`data : ${error}`)
+            console.error(`예약 취소 실패`);
+            return
+        }
+
+        data = response.data
+        const status = response.status
+        console.log(`data : ${data}`)
+        console.log(`status : ${status}`);
+
+        if (status === 200){
+            console.log(`예약취소 성공`);
+            alert(`예약취소  성공`)
+        }
+        else{
+            console.log(`예약취소 실패`);
+            alert(`예약취소 실패`)
+        }
+    }
 
     useEffect(() => {
         getCafeInfo()
@@ -19,8 +46,8 @@ const Home = () => {
         <>
             <Header/>
             <div className={"container"}>
-                <HomeForm/>
-                <LoginContextConsumer/>
+                <HomeForm cancelReservation={cancelReservation}/>
+                <LoginContextConsumer />
             </div>
         </>
 
