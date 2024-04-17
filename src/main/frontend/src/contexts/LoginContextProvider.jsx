@@ -221,6 +221,8 @@ const LoginContextProvider = ({children}) => {
         }
     }
 
+
+
     useEffect(() => {
         //로그인 체크
         console.log("콘텍스트 프로바이더 마운트 - LoginCheck")
@@ -229,7 +231,7 @@ const LoginContextProvider = ({children}) => {
 
 
     return(
-        <LoginContext.Provider value={{isLogin,userInfo, roles, reservationInfo, cafeListInfo, login, logout, loginCheck, getCafeInfo}}>
+        <LoginContext.Provider value={{isLogin,userInfo, roles, reservationInfo, cafeListInfo,login, logout, loginCheck, getCafeInfo}}>
             {children}
         </LoginContext.Provider>
     )

@@ -1,6 +1,7 @@
 import React, {useContext} from 'react'
 import './HomeForm.css'
 import {LoginContext} from "../../contexts/LoginContextProvider";
+import {Link} from "react-router-dom";
 const HomeForm = () => {
 
     const {isLogin, cafeListInfo,reservationInfo} = useContext(LoginContext)
@@ -24,14 +25,13 @@ const HomeForm = () => {
                                 defaultValue={cafe.cafeIdx}
                             />
                         </div>
+                        <div>{cafe.cafeIdx}</div>
                         <div className={"table-count"}>
                             <label htmlFor={"name"}>{cafe.unUsingCount}</label>
                             <span>/</span>
                             <label htmlFor={"name"}>{cafe.totalCount}</label>
                         </div>
-                        <button type={"submit"} className={"btn btn--form btn-login"}>
-                            예약
-                        </button>
+                        <Link to="/reserve" state={{idx: cafe.cafeIdx}}>예약</Link>
                     </div>
                 ))
             ) : (

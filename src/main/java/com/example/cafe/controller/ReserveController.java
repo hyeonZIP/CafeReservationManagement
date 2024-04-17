@@ -41,8 +41,9 @@ public class ReserveController {
     }
 
     @PostMapping("insert-reservation")
-    public int insertUserReservation(ReserveDto reserveDto)
+    public int insertUserReservation(@RequestBody ReserveDto reserveDto)
     {
+        System.out.println("컨트롤러 동작");
         return reserveService.insertUserReservation(reserveDto);
     }
 }

@@ -54,6 +54,7 @@ public class ReserveService {
      */
     public int insertUserReservation(ReserveDto reserveDto)
     {
+        System.out.println("서비스 동작");
         UserEntity userEntity = userRepository.findById(reserveDto.getUserIdx()).get();
         TableTemplateEntity tableTemplateEntity = tableTemplateRepository.findById(reserveDto.getTableIdx()).get();
 
