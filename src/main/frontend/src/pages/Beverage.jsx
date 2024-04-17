@@ -1,7 +1,7 @@
 import React, {useContext, useEffect, useState} from 'react';
 import Header from '../components/Header/Header'
 import ReserveForm from "../components/Reserve/ReserveForm";
-import {useLocation, useParams} from "react-router-dom";
+import {useLocation, useNavigate, useParams} from "react-router-dom";
 import {LoginContext} from "../contexts/LoginContextProvider";
 import * as auth from "../apis/auth";
 import BeverageForm from "../components/Reserve/BeverageForm";
@@ -9,10 +9,11 @@ const Beverage = () => {
     console.log("Beverage.jsx ---------------------------------- Mounted")
 
     const [menuInfo, setMenuInfo] = useState({});
-    const {userInfo, loginCheck} = useContext(LoginContext)
+    const {userInfo, loginCheck, getReservationInfo} = useContext(LoginContext)
     const location = useLocation();
     const cafeIdx = location.state.cafeIdx;
     const tableTemplateIdx = location.state.tableTemplateIdx;
+    const navigate = useNavigate()
 
     console.log("cafeIdx : " , cafeIdx)
     console.log("tableTemplateIdx : ",tableTemplateIdx)
@@ -48,14 +49,14 @@ const Beverage = () => {
         if (status === 200){
             console.log(`예약 성공`);
             alert(`예약 성공`)
+            getReservationInfo(userInfo.idx)
+            navigate('/')
         }
         else{
             console.log(`예약 실패`);
             alert(`예약 실패`)
         }
     }
-
-
 
     useEffect(() => {
         console.log("Beverage.jsx useEffect---------------------------------- Mounted")

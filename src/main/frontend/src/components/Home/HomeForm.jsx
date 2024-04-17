@@ -16,21 +16,8 @@ const HomeForm = () => {
                 cafeListInfo.map((cafe, index) => (
                     <div className={"form"} key={index}>
                         <h2 className={"cafe-title"}>{cafe.cafeName}</h2>
-                        <div className={"disabled-component"}>
-                            <label htmlFor={"name"}>idx</label>
-                            <input
-                                type={"text"}
-                                id={"idx"}
-                                name={"idx"}
-                                defaultValue={cafe.cafeIdx}
-                            />
-                        </div>
-                        <div>{cafe.cafeIdx}</div>
-                        <div className={"table-count"}>
-                            <label htmlFor={"name"}>{cafe.unUsingCount}</label>
-                            <span>/</span>
-                            <label htmlFor={"name"}>{cafe.totalCount}</label>
-                        </div>
+                        <div>cafeIdx : {cafe.cafeIdx}</div>
+                        <div>{cafe.unUsingCount}/{cafe.totalCount}</div>
                         <Link to="/reserve" state={{idx: cafe.cafeIdx}}>예약</Link>
                     </div>
                 ))
@@ -56,6 +43,7 @@ const HomeForm = () => {
                                 <div>Request : {reservationInfo.req}</div>
                                 <div>Response : {reservationInfo.res}</div>
                                 <div>Client : {reservationInfo.userRealName}</div>
+                                <button>취소하기</button>
                             </div>
                         )
                 }

@@ -231,7 +231,7 @@ const LoginContextProvider = ({children}) => {
 
 
     return(
-        <LoginContext.Provider value={{isLogin,userInfo, roles, reservationInfo, cafeListInfo,login, logout, loginCheck, getCafeInfo}}>
+        <LoginContext.Provider value={{isLogin,userInfo, roles,getReservationInfo, reservationInfo, cafeListInfo,login, logout, loginCheck, getCafeInfo}}>
             {children}
         </LoginContext.Provider>
     )
