@@ -99,11 +99,15 @@ const ReserveForm = ({sectorInfo, getTableInfo, tableInfo, cafeIdx}) => {
             }
             else if (table.componentId === 2)
             {
-                rowIndex.props.children[table.tableTemplateX-1] = <td>D</td>
+                rowIndex.props.children[table.tableTemplateX-1] = <td>데</td>
             }
             else if(table.componentId === 7)
             {
-                rowIndex.props.children[table.tableTemplateX-1] = <td>S</td>
+                rowIndex.props.children[table.tableTemplateX-1] = <td>계</td>
+            }
+            else if(table.componentId === 6)
+            {
+                rowIndex.props.children[table.tableTemplateX-1] = <td>벽</td>
             }
         }
 

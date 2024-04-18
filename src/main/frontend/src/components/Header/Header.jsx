@@ -10,7 +10,7 @@ const Header = () => {
         <header>
             <div className={"logo"}>
                 <Link to="/">
-                    <img src="/path/to/your/image.png" alt="logo" className="logo" />
+                    LimJaeHyeon
                 </Link>
             </div>
 

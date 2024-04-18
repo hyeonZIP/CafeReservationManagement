@@ -7,13 +7,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-class TableTemplateRepositoryTest {
+class CafeRepositoryTest {
 
     @Autowired
-    CafeSectorRepository cafeSectorRepository;
-
+    CafeRepository cafeRepository;
     @Test
-    void findByCafeIdx() {
-       cafeSectorRepository.findByCafeIdx(1L);
+    void findTop3ByCafeIdx() {
+        cafeRepository.findTop3ByCafeIdx();
     }
 }

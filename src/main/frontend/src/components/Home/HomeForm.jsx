@@ -12,25 +12,27 @@ const HomeForm = ({cancelReservation}) => {
     return (
         <div>
             <h2>주변 카페 리스트</h2>
+            <div className={"form-container"}>
             {Array.isArray(cafeListInfo) ? (
                 cafeListInfo.map((cafe, index) => (
                     <div className={"form"} key={index}>
                         <h2 className={"cafe-title"}>{cafe.cafeName}</h2>
                         <div>cafeIdx : {cafe.cafeIdx}</div>
                         <div>{cafe.unUsingCount}/{cafe.totalCount}</div>
-                        <Link to="/reserve" state={{idx: cafe.cafeIdx}}>예약</Link>
+                        {isLogin && (<Link to="/reserve" state={{idx: cafe.cafeIdx}}>예약</Link>)}
                     </div>
                 ))
             ) : (
-                <p>오류: cafeListInfo가 배열이 아닙니다</p>
+                <p>카페 정보 불러오기 오류</p>
             )}
+            </div>
 
             <div>
                 <h2>예약 정보</h2>
                 {
                     !isLogin
                         ?
-                        <div>로그인 해주세요</div>
+                        <div>Login First dude</div>
                         :
                         (reservationInfo.cafeName === null || reservationInfo.cafeName === undefined
                             ?

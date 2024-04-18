@@ -24,12 +24,9 @@ public class HomeController {
      * 조건에 해당하는 카페들의 이름과 좌석 리턴
      */
     @GetMapping("/cafe")
-    public List<CafeSeatDto> findByCafeIdx(@RequestParam(name = "idx") Long idx)
+    public List<CafeSeatDto> findByCafeIdx()
     {
-        log.info("idx={}", idx);
-//        homeService.save();
-
-        return homeService.findByCafeIdx(idx);
+        return homeService.findByCafeIdx();
     }
 
     /**

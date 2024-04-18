@@ -201,7 +201,7 @@ const LoginContextProvider = ({children}) => {
 
     const getCafeInfo = async ()=>{
         try{
-            const response = await auth.cafeInfo(1)
+            const response = await auth.cafeInfo()
             const data =response.data
             console.log("카페 정보 불러오기 : ", data);
             setCafeListInfo(data);
@@ -220,6 +220,7 @@ const LoginContextProvider = ({children}) => {
             console.error("예약 정보 불러오기 오류 : ", error);
         }
     }
+
 
 
 

@@ -7,6 +7,12 @@
     background-color: #f2efee;
 }
 
+.form-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* 중앙 정렬 */
+}
+
 body {
     background-color: #f2efee;
     margin: 0; /* 기본 마진 제거 */

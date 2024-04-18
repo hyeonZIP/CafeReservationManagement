@@ -20,9 +20,9 @@ public class HomeService {
     private final UserReservationRepository userReservationRepository;
 
     //카페 이름과 좌석 조회
-    public List<CafeSeatDto> findByCafeIdx(Long idx)
+    public List<CafeSeatDto> findByCafeIdx()
     {
-        var dto = cafeRepository.findByCafeIdx(idx);
+        var dto = cafeRepository.findTop3ByCafeIdx();
         return dto.orElse(Collections.emptyList());
     }
 
@@ -32,5 +32,4 @@ public class HomeService {
         var dto = userReservationRepository.findByUserIdx(idx);
         return dto.orElse(new UserReservationDto());
     }
-
 }

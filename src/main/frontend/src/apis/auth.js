@@ -19,7 +19,7 @@ export const remove = (username) => api.delete(`/users/${username}`)
 //회원 예약 정보
 export const reserveInfo = (idx)=>api.get(`/home/reservation?idx=${idx}`);
 //카페 정보
-export const cafeInfo = (idx)=>api.get(`/home/cafe?idx=${idx}`);
+export const cafeInfo = ()=>api.get(`/home/cafe`);
 
 /*************************************************Reserve Controller***************************************************/
 //선택한 카페idx로 sector정보 요청
