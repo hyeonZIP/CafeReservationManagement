@@ -1,16 +1,45 @@
-.form{
-    width: 400px;
-    margin: auto;
-    padding: 36px 48px 48px 48px;
+.cafe-form {
+    width: 300px;
+    height: 400px;
+    margin-inline: 50px;
+    padding: 10px;
+    border-radius: 15px;
+    position: relative;
+    background-color: #E0E0E0;
+}
+.form-container {
+    display: flex;
+    margin-top: 20px;
+    flex-wrap: wrap;
     border-radius: 11px;
-    box-shadow: 0 2.4rem 4.8rem rgba(0,0,0,0.15);
+    justify-content: center; /* 중앙 정렬 */
+}
+
+.cafe-title{
+    font-size: 35px;
+}
+
+.reservation-form{
+    width: calc(100% - 200px);
+    max-width: 900px;
+    max-height: 3000px;
+    margin: 20px; /* 간격 설정 */
+    padding: 20px;
+    border-radius: 11px;
+    box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.15);
     background-color: #f2efee;
 }
 
-.form-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* 중앙 정렬 */
+@media screen and (max-width: 768px) {
+    .form {
+        width: calc(33.33% - 40px); /* 화면이 좁아지면 한 줄에 세 개씩 표시되도록 설정 */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .form {
+        width: calc(50% - 40px); /* 화면이 매우 좁아지면 한 줄에 두 개씩 표시되도록 설정 */
+    }
 }
 
 body {
@@ -50,10 +79,18 @@ body {
     box-shadow: 0 0 0 4px rgba(253, 242, 233, 0.5);
 }
 .btn--form{
-    background-color: #f48982;
-    color: #fdf2e9;
+    background-color: #ffffff;
+    color: #ffffff;
     align-self: end;
     padding: 8px;
+    position: absolute;
+    margin-bottom: 250px;
+    border-radius: 100px;
+    margin-left: 10px;
+    width: 100px;
+    text-align: center;
+    bottom: 0;
+    left: 0;
 }
 
 .btn,
@@ -70,13 +107,4 @@ body {
     font-family: inherit;
 
     transition: all 0.3s;
-}
-
-.btn-login:hover{
-    outline: 1px solid #f48982;
-}
-
-.btn--form:hover{
-    background-color: #fdf2e9;
-    color: #f48982;
 }

@@ -10,7 +10,7 @@ const Reserve = () => {
 
     const [tableInfo, setTableInfo] = useState({})
 
-    // const {loginCheck} = useContext(LoginContext)
+    const {loginCheck} = useContext(LoginContext)
     const location = useLocation();
     const cafeIdx = location.state.idx;
 
@@ -45,7 +45,7 @@ const Reserve = () => {
 
     useEffect(() => {
         console.log("Reserve.jsx useEffect---------------------------------- Mounted")
-        // loginCheck()
+        loginCheck()
         getSectorInfo(cafeIdx)
     }, []);
 

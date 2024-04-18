@@ -37,9 +37,9 @@
     outline: none;
     box-shadow: 0 0 0 4px rgba(253, 242, 233, 0.5);
 }
-.btn--form{
+.btn---form{
     background-color: #f48982;
-    color: #fdf2e9;
+    color: #000000;
     align-self: end;
     padding: 8px;
 }

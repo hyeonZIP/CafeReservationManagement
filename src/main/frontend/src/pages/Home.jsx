@@ -7,7 +7,7 @@ import * as auth from "../apis/auth";
 
 const Home = () => {
 
-    const {getCafeInfo} = useContext(LoginContext)
+    const {getCafeInfo, getReservationInfo, userInfo, loginCheck} = useContext(LoginContext)
     //회원 정보 조회 - /user/info
 
     const cancelReservation = async (reserveIdx) =>{
@@ -31,6 +31,8 @@ const Home = () => {
         if (status === 200){
             console.log(`예약취소 성공`);
             alert(`예약취소  성공`)
+            getReservationInfo(userInfo.idx)
+
         }
         else{
             console.log(`예약취소 실패`);
@@ -39,6 +41,7 @@ const Home = () => {
     }
 
     useEffect(() => {
+        console.log("HomeForm useEffect 체크")
         getCafeInfo()
     }, []);
 
@@ -47,7 +50,6 @@ const Home = () => {
             <Header/>
             <div className={"container"}>
                 <HomeForm cancelReservation={cancelReservation}/>
-                <LoginContextConsumer />
             </div>
         </>
 

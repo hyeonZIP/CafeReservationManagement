@@ -55,10 +55,10 @@ const UserForm = ({userInfo, updateUser, deleteUser}) => {
                            required
                            defaultValue={userInfo?.realname}/>
                 </div>
-                <button type={"submit"} className={"btn btn--form btn-login"}>
+                <button type={"submit"} className={"btn btn---form btn-login"}>
                     Update
                 </button>
-                <button type={"submit"} className={"btn btn--form btn-login"} onClick={() => deleteUser(userInfo?.idx)}>
+                <button type={"submit"} className={"btn btn---form btn-login"} onClick={() => deleteUser(userInfo?.idx)}>
                     Delete
                 </button>
             </form>

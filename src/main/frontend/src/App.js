@@ -8,7 +8,6 @@ import LoginContextProvider from "./contexts/LoginContextProvider";
 import Beverage from "./pages/Beverage";
 function App() {
   return (
-      // context와 props의 차이가 뭘까?
       <BrowserRouter>
           <LoginContextProvider>
               <Routes>

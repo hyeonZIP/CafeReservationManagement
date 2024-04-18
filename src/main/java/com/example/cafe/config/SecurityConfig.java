@@ -78,11 +78,12 @@ public class SecurityConfig {
 
         http
                 .authorizeHttpRequests((auth)->auth
-                        .requestMatchers("/login", "/", "/users/**", "/home/**", "/reserve/**").permitAll()
+                        .requestMatchers("/login", "/", "/home/cafe").permitAll()
                         .requestMatchers("/admin/**").hasRole("ADMIN")
                         .requestMatchers("/reissue").permitAll()
-//                        .anyRequest().authenticated()
+                        .anyRequest().authenticated()
                 );
+//        , "/users/**", "/home/**", "/reserve/**"
                 //로그인 루트 조인 경로에 대해서는 모든 권한을 허용한다
         //어드민 경로는 어드민이라는 권한을 가진 사용자만 접근 가능
         //any리퀘스트는 로그인 한 사용자만 접근가능하도록

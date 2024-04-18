@@ -34,9 +34,9 @@ const LoginForm = () => {
                            name={"password"}
                            required/>
                 </div>
-                <button type={"submit"} className={"btn btn--form btn-login"}>
-                    Login
-                </button>
+                    <button type={"submit"} className={"btn btn---form btn-login"}>
+                        Login
+                    </button>
             </form>
         </div>
 

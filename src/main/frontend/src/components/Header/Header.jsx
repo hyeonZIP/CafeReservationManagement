@@ -8,7 +8,7 @@ const Header = () => {
     const {isLogin, login, logout} = useContext(LoginContext)
     return (
         <header>
-            <div className={"logo"}>
+            <div className={"home"}>
                 <Link to="/">
                     LimJaeHyeon
                 </Link>

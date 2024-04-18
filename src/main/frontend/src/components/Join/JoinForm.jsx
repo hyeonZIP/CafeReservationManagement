@@ -52,7 +52,7 @@ const JoinForm = ({join}) => {
                            name={"realname"}
                            required/>
                 </div>
-                <button type={"submit"} className={"btn btn--form btn-login"}>
+                <button type={"submit"} className={"btn btn---form btn-login"}>
                     Join
                 </button>
             </form>

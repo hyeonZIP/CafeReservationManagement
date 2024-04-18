@@ -65,20 +65,20 @@ const ReserveForm = ({sectorInfo, getTableInfo, tableInfo, cafeIdx}) => {
             const cell = [];
             for (let j = 0; j < x; j++)
             {
-                cell.push(<td key={j}>__</td>);
+                cell.push(<td key={j}><img src={"/img/null.png"}/></td>);
             }
             row.push(<tr key={i}>{cell}</tr>);
         }
 
-        for (let i=0; i<tableInfo.length; i++)
-        {
-            const table = tableInfo[i];
-            if (table.tableTemplateX <= x && table.tableTemplateY <= y) {
-                const rowIndex = row[table.tableTemplateY - 1];
-                rowIndex.props.children[table.tableTemplateX - 1] = <td key={table.tableTemplateId}>__</td>;
-            }
-
-        }
+        // for (let i=0; i<tableInfo.length; i++)
+        // {
+        //     const table = tableInfo[i];
+        //     if (table.tableTemplateX <= x && table.tableTemplateY <= y) {
+        //         const rowIndex = row[table.tableTemplateY - 1];
+        //         rowIndex.props.children[table.tableTemplateX - 1] = <td key={table.tableTemplateId}>__</td>;
+        //     }
+        //
+        // }
 
         for(let i =0; i< tableInfo.length; i++)
         {
@@ -89,25 +89,51 @@ const ReserveForm = ({sectorInfo, getTableInfo, tableInfo, cafeIdx}) => {
             {
                 if (!table.isUsing)
                 {
-                    rowIndex.props.children[table.tableTemplateX-1] = <td><button onClick={()=>selectTable(table.tableTemplateId)}>T{table.seatCount}</button></td>
+                    rowIndex.props.children[table.tableTemplateX-1] = (
+                        <td>
+                            <div style={{position: 'relative'}}>
+                                <img src={"/img/unUsing.png"} style={{objectFit:'cover'}}/>
+                                <button onClick={() => selectTable(table.tableTemplateId)}
+                                        style={{position: 'absolute', top: '50%', left: '50%',
+                                            transform: 'translate(-50%, -50%)', padding: '5px 5px',
+                                            borderRadius: '8px', border: 'none', backgroundColor: 'transparent', cursor: 'pointer' }}>
+                                    T{table.seatCount}
+                                </button>
+                            </div>
+                        </td>
+                    );
                 }
                 else
                 {
-                    rowIndex.props.children[table.tableTemplateX-1] = <td>U</td>
+                    rowIndex.props.children[table.tableTemplateX-1] = (
+                        <td>
+                            <div style={{position: 'relative'}}>
+                                <img src={"/img/using.png"} style={{objectFit:'cover'}}/>
+                                <button onClick={() => selectTable(table.tableTemplateId)}
+                                        style={{position: 'absolute', top: '50%', left: '50%',
+                                            transform: 'translate(-50%, -50%)', padding: '5px 5px',
+                                            borderRadius: '8px', border: 'none', backgroundColor: 'transparent', cursor: 'pointer' }}>
+                                    T{table.seatCount}
+                                </button>
+                            </div>
+                        </td>
+                    );
                 }
 
             }
             else if (table.componentId === 2)
             {
-                rowIndex.props.children[table.tableTemplateX-1] = <td>데</td>
+                rowIndex.props.children[table.tableTemplateX-1] = <td><img src={"/img/desk.png"}/> </td>
             }
             else if(table.componentId === 7)
             {
-                rowIndex.props.children[table.tableTemplateX-1] = <td>계</td>
-            }
-            else if(table.componentId === 6)
+                rowIndex.props.children[table.tableTemplateX-1] = <td><img src={"/img/stairs.png"}/></td>
+            } else if(table.componentId === 6)
             {
-                rowIndex.props.children[table.tableTemplateX-1] = <td>벽</td>
+                rowIndex.props.children[table.tableTemplateX-1] = <td><img src={"/img/wall.png"}/></td>
+            } else
+            {
+                rowIndex.props.children[table.tableTemplateX-1] = <td> </td>
             }
         }
 
