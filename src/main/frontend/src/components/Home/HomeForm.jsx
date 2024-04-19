@@ -74,7 +74,7 @@ const HomeForm = ({cancelReservation}) => {
                                     <div>Request : {reservationInfo.req}</div>
                                     <div>Response : {reservationInfo.res}</div>
                                     <div>Client : {reservationInfo.userRealName}</div>
-                                    <button onClick={()=>cancelReservation(reservationInfo.reservationIdx)}>취소하기</button>
+                                    <button className={"btn---form"} onClick={()=>cancelReservation(reservationInfo.reservationIdx)}>Cancel</button>
                                 </div>
                             </div>
                         )

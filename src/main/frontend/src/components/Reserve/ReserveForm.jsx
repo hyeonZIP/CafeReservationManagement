@@ -109,8 +109,7 @@ const ReserveForm = ({sectorInfo, getTableInfo, tableInfo, cafeIdx}) => {
                         <td>
                             <div style={{position: 'relative'}}>
                                 <img src={"/img/using.png"} style={{objectFit:'cover'}}/>
-                                <button onClick={() => selectTable(table.tableTemplateId)}
-                                        style={{position: 'absolute', top: '50%', left: '50%',
+                                <button style={{position: 'absolute', top: '50%', left: '50%',
                                             transform: 'translate(-50%, -50%)', padding: '5px 5px',
                                             borderRadius: '8px', border: 'none', backgroundColor: 'transparent', cursor: 'pointer' }}>
                                     T{table.seatCount}
@@ -131,9 +130,9 @@ const ReserveForm = ({sectorInfo, getTableInfo, tableInfo, cafeIdx}) => {
             } else if(table.componentId === 6)
             {
                 rowIndex.props.children[table.tableTemplateX-1] = <td><img src={"/img/wall.png"}/></td>
-            } else
+            } else if(table.componentId === 9)
             {
-                rowIndex.props.children[table.tableTemplateX-1] = <td> </td>
+                rowIndex.props.children[table.tableTemplateX-1] = <td><img src={"/img/door.png"}/></td>
             }
         }
 

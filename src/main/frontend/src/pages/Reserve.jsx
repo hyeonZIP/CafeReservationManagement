@@ -49,7 +49,6 @@ const Reserve = () => {
         getSectorInfo(cafeIdx)
     }, []);
 
-
     return (
         <>
             <Header/>

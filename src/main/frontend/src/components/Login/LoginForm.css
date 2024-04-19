@@ -42,6 +42,7 @@
     color: #000000;
     align-self: end;
     padding: 8px;
+    border-radius: 50px;
 }
 
 .btn,
