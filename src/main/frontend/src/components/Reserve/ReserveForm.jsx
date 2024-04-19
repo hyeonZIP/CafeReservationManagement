@@ -50,7 +50,7 @@ const ReserveForm = ({sectorInfo, getTableInfo, tableInfo, cafeIdx}) => {
         for(let i=0; i<sectorInfo.length; i++)
         {
             const sectorIdx = sectorInfo[i].sectorIdx;
-            btn.push(<button key={sectorIdx} onClick={()=> selectSector(sectorIdx)}>{sectorInfo[i].sectorName}</button>)
+            btn.push(<button key={sectorIdx} onClick={()=> selectSector(sectorIdx)} style={{padding: '5px 25px',borderRadius: '80px'}}>{sectorInfo[i].sectorName}</button>)
             //여기서 키 값을 빼내서 테이블 템플릿 정보 불러온다
         }
         return btn;
@@ -75,9 +75,8 @@ const ReserveForm = ({sectorInfo, getTableInfo, tableInfo, cafeIdx}) => {
         //     const table = tableInfo[i];
         //     if (table.tableTemplateX <= x && table.tableTemplateY <= y) {
         //         const rowIndex = row[table.tableTemplateY - 1];
-        //         rowIndex.props.children[table.tableTemplateX - 1] = <td key={table.tableTemplateId}>__</td>;
+        //         rowIndex.props.children[table.tableTemplateX - 1] = <td key={table.tableTemplateId}></td>;
         //     }
-        //
         // }
 
         for(let i =0; i< tableInfo.length; i++)
@@ -89,6 +88,9 @@ const ReserveForm = ({sectorInfo, getTableInfo, tableInfo, cafeIdx}) => {
             {
                 if (!table.isUsing)
                 {
+                    console.log("rowIndex : ", rowIndex)
+                    console.log("rowIndex.props : ", rowIndex.props)
+                    console.log("rowIndex.props.children : ", rowIndex.props.children)
                     rowIndex.props.children[table.tableTemplateX-1] = (
                         <td>
                             <div style={{position: 'relative'}}>

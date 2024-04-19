@@ -78,7 +78,7 @@ public class SecurityConfig {
 
         http
                 .authorizeHttpRequests((auth)->auth
-                        .requestMatchers("/login", "/", "/home/cafe").permitAll()
+                        .requestMatchers("/login", "/", "/home/cafe", "/users").permitAll()
                         .requestMatchers("/admin/**").hasRole("ADMIN")
                         .requestMatchers("/reissue").permitAll()
                         .anyRequest().authenticated()

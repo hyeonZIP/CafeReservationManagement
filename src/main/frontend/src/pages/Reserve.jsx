@@ -53,7 +53,9 @@ const Reserve = () => {
         <>
             <Header/>
             <div className={"container"}>
-                <ReserveForm sectorInfo={sectorInfo} getTableInfo={getTableInfo} tableInfo={tableInfo} cafeIdx={cafeIdx}/>
+                <div>
+                    <ReserveForm sectorInfo={sectorInfo} getTableInfo={getTableInfo} tableInfo={tableInfo} cafeIdx={cafeIdx}/>
+                </div>
             </div>
         </>
 

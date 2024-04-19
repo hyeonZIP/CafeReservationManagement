@@ -70,7 +70,7 @@ const HomeForm = ({cancelReservation}) => {
                                 <div className={"reservation-form"} style={{backgroundColor : getRandomColor()}}>
                                     <div>Reservation ID : {reservationInfo.reservationIdx}</div>
                                     <div>Cafe : {reservationInfo.cafeName}</div>
-                                    <div>Table : {reservationInfo.sectorName} . {reservationInfo.seatNo}</div>
+                                    <div>Table : {reservationInfo.sectorName} . {reservationInfo.seatNo}번</div>
                                     <div>Request : {reservationInfo.req}</div>
                                     <div>Response : {reservationInfo.res}</div>
                                     <div>Client : {reservationInfo.userRealName}</div>

@@ -87,7 +87,6 @@ const User = () => {
         <>
             <Header/>
             <div className={"container"}>
-                <h1>User</h1>
                 <UserForm userInfo={userInfos} updateUser={updateUser} deleteUser={deleteUser}/>
             </div>
         </>
